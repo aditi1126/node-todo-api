@@ -7,6 +7,7 @@ var {User} = require('./models/user');
 var {Todo} = require('./models/todo');
 
 var app = express();
+const port = process.env.port || 3000;
 
 /*app.post('/todos', (req, res) => {
   var todo = new Todo({
@@ -51,12 +52,12 @@ app.get('/todos/:id', (req, res) => {
       res.send({todo}); //we send obj so as in future we can add new properties to the returned result such as status codes n all.
   }).catch((e) => {
     res.status(400).send();
-  })
+  });
 
 })
 
-app.listen(3000, () => { //basic server
-  console.log('Listening on port 3000');
+app.listen(port, () => { //basic server
+  console.log(`Listening on port ${port}`);
 });
 
 //post route
